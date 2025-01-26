@@ -41,6 +41,12 @@ else
     tmux new-window
     tmux send-keys 'irssi' C-m
     
+    # opens fifth window and runs ncspot
+    tmux new-window -n 'spotify'
+    tmux send-keys -t 'spotify' 'ncspot' C-m
+    
+
+
     # make terminal full screen (checks if i3bar is visible on eDP-1. if yes, toggles fullscreen on. else does not toggle fullscreen.
 #    if xwininfo -id $(xdotool search -name "i3bar for output eDP-1") | grep IsViewable 2>/dev/null; then
 #        i3-msg 'fullscreen toggle'
@@ -58,6 +64,7 @@ else
 #    xdotool key Ctrl+minus
 
     # switch to window 3, then window 2 so the order of previous windows will be ascending when the session attaches to window 1
+    tmux select-window -t 4
     tmux select-window -t 3
     tmux select-window -t 2
     tmux select-window -t 1
