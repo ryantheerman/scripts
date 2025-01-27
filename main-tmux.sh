@@ -31,7 +31,7 @@ else
     
     # opens second window, names it 'notes', and opens the daybook in vim
     tmux new-window -n 'notes'
-    tmux send-keys -t 'notes' 'daybook' C-m
+    tmux send-keys -t 'notes' 'cd ~/notes/ && daybook' C-m
     
     # opens third window and runs htop
     tmux new-window
