@@ -9,7 +9,11 @@
 # but maybe I shouldn't actually. the update doesn't ALWAYS cause a problem. do i run into trouble running some of these settings on top of each other?
 # i think maybe just doubling/tripling etc the xcape settings. will test.
 
-setxkbmap us -v dvorak
+if [ $USER == 'root' ]; then
+    echo 'Resetting x configs after system upgrade...'
+fi
+
+setxkbmap us -v dvorak 1> /dev/null
 xset r rate 200 30
 xset s 1800 1800 +dpms
 xmodmap /home/match/.Xmodmap
@@ -19,6 +23,10 @@ xcape -e 'Hyper_R=Escape'
 #xcape -e 'Control_L=Control_L|a'
 xinput set-button-map 11 1 1 3 4 5 6 7
 xrdb /home/match/.Xresources
+
+if [ $USER == 'root' ]; then
+    echo 'Success!'
+fi
 
 
 # okay yes, disabling the xcape left control setting lets me run this scripts with no unexpected behavior. it's idempotent but for that line.
