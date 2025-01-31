@@ -24,9 +24,4 @@ xcape -e 'Hyper_R=Escape'
 xinput set-button-map 11 1 1 3 4 5 6 7
 xrdb /home/match/.Xresources
 
-if [ $USER == 'root' ]; then
-    echo 'Success!'
-fi
-
-
 # okay yes, disabling the xcape left control setting lets me run this scripts with no unexpected behavior. it's idempotent but for that line.
