@@ -11,10 +11,10 @@ if tmux has-session -t "$SESSION" 2>/dev/null; then
 #    fi
 
     # resets zoom to default, then zooms in one tick (this makes it so the tmux status bar fits neatly at the bottom without blank space
-#    xdotool key Ctrl+0
-#    xdotool key Ctrl+minus
-#    xdotool key Ctrl+minus
-#    xdotool key Ctrl+minus
+    xdotool key Ctrl+0
+    xdotool key Ctrl+minus
+#    xdotool key Ctrl+equal
+#    xdotool key Ctrl+equal
     
     # for some reason 'Ctrl+plus' is not working as expected. Even when I run it manually. Must be another command.
     #xdotool key Ctrl+plus
@@ -58,10 +58,10 @@ else
     #xdotool key Ctrl+plus
 
     # resets zoom to default, then zooms in one tick (this makes it so the tmux status bar fits neatly at the bottom without blank space
-#    xdotool key Ctrl+0
-#    xdotool key Ctrl+minus
-#    xdotool key Ctrl+minus
-#    xdotool key Ctrl+minus
+    xdotool key Ctrl+0
+    xdotool key Ctrl+minus
+#    xdotool key Ctrl+equal
+#    xdotool key Ctrl+equal
 
     # switch to window 3, then window 2 so the order of previous windows will be ascending when the session attaches to window 1
     tmux select-window -t 4

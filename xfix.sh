@@ -21,7 +21,7 @@ xcape -e 'Hyper_R=Escape'
 
 # below xcape config seems unaffected by the system update issue. running it twice (at xinit and after update) seems to cause trouble)
 #xcape -e 'Control_L=Control_L|a'
-xinput set-button-map 11 1 1 3 4 5 6 7
+xinput set-button-map 10 1 1 3 4 5 6 7
 xrdb /home/match/.Xresources
 
 # okay yes, disabling the xcape left control setting lets me run this scripts with no unexpected behavior. it's idempotent but for that line.
