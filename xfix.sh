@@ -9,9 +9,9 @@
 # but maybe I shouldn't actually. the update doesn't ALWAYS cause a problem. do i run into trouble running some of these settings on top of each other?
 # i think maybe just doubling/tripling etc the xcape settings. will test.
 
-if [ $USER == 'root' ]; then
-    echo 'Resetting x configs after system upgrade...'
-fi
+#if [ $USER == 'root' ]; then
+#    echo 'Resetting x configs after system upgrade...'
+#fi
 
 setxkbmap us -v dvorak 1> /dev/null
 xset r rate 200 30
