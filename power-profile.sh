@@ -22,20 +22,25 @@ if [ $1 == "balanced" ]; then
     # and ac is on
     if [ $acIsOn == 1 ]; then
         tuned-adm profile balanced
+        echo "balanced (ac)" > /home/match/.config/i3status/power-profile
     # or ac is off
     else
         tuned-adm profile balanced-battery
+        echo "balanced (bat)" > /home/match/.config/i3status/power-profile
     fi
 # if param is power-saving
 elif [ $1 == "power-saving" ]; then
     # and ac is on
     if [ $acIsOn == 1 ]; then
         tuned-adm profile laptop-ac-powersave
+        echo "power-saving (ac)" > /home/match/.config/i3status/power-profile
     # or ac is off
     else
         tuned-adm profile laptop-battery-powersave
+        echo "power-saving (bat)"  > /home/match/.config/i3status/power-profile
     fi
 # if param is performance
 elif [ $1 == "performance" ]; then
     tuned-adm profile throughput-performance
+    echo "performance" > /home/match/.config/i3status/power-profile
 fi
