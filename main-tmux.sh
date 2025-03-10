@@ -2,6 +2,8 @@
 
 SESSION="main"
 
+cd ~
+
 if tmux has-session -t "$SESSION" 2>/dev/null; then
     echo "session '$SESSION' exists."
     
@@ -11,8 +13,8 @@ if tmux has-session -t "$SESSION" 2>/dev/null; then
 #    fi
 
     # resets zoom to default, then zooms in one tick (this makes it so the tmux status bar fits neatly at the bottom without blank space
-    xdotool key Ctrl+0
-    xdotool key Ctrl+minus
+#    xdotool key Ctrl+0
+#    xdotool key Ctrl+minus
 #    xdotool key Ctrl+equal
 #    xdotool key Ctrl+equal
     
@@ -58,8 +60,8 @@ else
     #xdotool key Ctrl+plus
 
     # resets zoom to default, then zooms in one tick (this makes it so the tmux status bar fits neatly at the bottom without blank space
-    xdotool key Ctrl+0
-    xdotool key Ctrl+minus
+#    xdotool key Ctrl+0
+#    xdotool key Ctrl+minus
 #    xdotool key Ctrl+equal
 #    xdotool key Ctrl+equal
 

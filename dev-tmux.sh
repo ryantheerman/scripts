@@ -9,8 +9,8 @@ if tmux has-session -t $SESSION 2>/dev/null; then
 #        i3-msg 'fullscreen toggle'
 #    fi
 
-    xdotool key Ctrl+0
-    xdotool key Ctrl+minus
+#    xdotool key Ctrl+0
+#    xdotool key Ctrl+minus
 
     tmux attach-session -d -t $SESSION:1
 else
@@ -27,8 +27,8 @@ else
 #        i3-msg 'fullscreen toggle'
 #    fi
 
-    xdotool key Ctrl+0
-    xdotool key Ctrl+minus
+#    xdotool key Ctrl+0
+#    xdotool key Ctrl+minus
 
     tmux attach-session -d -t $SESSION:1
 fi
