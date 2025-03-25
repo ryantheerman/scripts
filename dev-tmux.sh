@@ -19,7 +19,7 @@ else
     tmux new-session -d -s $SESSION
     tmux rename-window 'git'
 
-    tmux send-keys 'cd ~/projects/tech_elevator/TE-exercises' C-m
+    tmux send-keys 'cd ~/projects/aoc-java' C-m
 
     tmux new-window -n 'database'
 

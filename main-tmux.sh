@@ -46,6 +46,11 @@ else
     # opens fifth window and runs ncspot
     tmux new-window -n 'spotify'
     tmux send-keys -t 'spotify' 'ncspot' C-m
+
+    # opens sixth window for project
+    tmux new-window -n 'project'
+    tmux send-keys -t 'project' 'cd ~/projects/aoc-java' C-m
+    tmux send-keys -t 'project' 'clear' C-m
     
 
 
@@ -66,6 +71,7 @@ else
 #    xdotool key Ctrl+equal
 
     # switch to window 3, then window 2 so the order of previous windows will be ascending when the session attaches to window 1
+    tmux select-window -t 5
     tmux select-window -t 4
     tmux select-window -t 3
     tmux select-window -t 2
