@@ -17,7 +17,7 @@ if [[ $(xrandr --query | grep "DP-2-6-8 connected") ]]; then
     fi
     
     # whether newly created or not, apply the display config with the custom modes
-    xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1613x1440 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off --output DP-3 --off --output HDMI-3 --off --output DP-2-5 --off --output DP-2-6 --off --output DP-2-6-8 --mode 2560x1440_30.00 --pos 0x0 --rotate normal --output DP-2-6-1 --off --output DP-2-6-1-8 --mode 2560x1440_30.00 --pos 2560x0 --rotate normal
+    xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1613x1440 --rotate normal --output DP-1 --off --output HDMI-1 --off --output DP-2 --off --output HDMI-2 --off --output DP-3 --off --output HDMI-3 --off --output DP-2-5 --off --output DP-2-6 --off --output DP-1-6-8 --mode 2560x1440_30.00 --pos 0x0 --rotate normal --output DP-2-6-1 --off --output DP-1-6-1-8 --mode 2560x1440_30.00 --pos 2560x0 --rotate normal
 
 
     #xrandr --output eDP-1 --mode 1920x1080_60.00 --output DP-2-6-8 --mode 2560x1440_30.00 --above eDP-1 --output DP-2-6-1-8 --mode 2560x1440_30.00 --right-of DP-2-6-8
