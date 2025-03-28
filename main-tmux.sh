@@ -38,7 +38,10 @@ else
     # opens third window and runs htop
     tmux new-window
     tmux send-keys 'htop' C-m
-    
+    if [[ $($HOME/scripts/readMoon.sh) == "ganymede" ]]; then
+        tmux split-pane -h
+        tmux send-keys 'nvtop' C-m
+    fi
     # opens fourth window and runs irssi
     tmux new-window
     tmux send-keys 'irssi' C-m
