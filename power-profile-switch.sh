@@ -15,7 +15,7 @@ if [ $1 == "true" ]; then
         echo "power-saving (ac)" > /home/match/.config/i3status/power-profile
     elif [ $current_profile == "balanced-battery" ]; then
         tuned-adm profile balanced
-        echo "balanced (ac)" > /home/match/.config/i3status/power-profile
+        echo "<span color='orange'>balanced (ac)</span>" > /home/match/.config/i3status/power-profile
     fi  
 # else if we just unplugged
 # and we're in AC power saving-mode -> switch to BAT power-saving mode
@@ -29,6 +29,6 @@ elif [ $1 == "false" ]; then
         echo "power-saving (bat)" > /home/match/.config/i3status/power-profile
     elif [ $current_profile == "balanced" ]; then
         tuned-adm profile balanced-battery
-        echo "balanced (bat)" > /home/match/.config/i3status/power-profile
+        echo "<span color='orange'>balanced (bat)</span>" > /home/match/.config/i3status/power-profile
     fi
 fi
