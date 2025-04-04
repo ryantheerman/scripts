@@ -3,9 +3,8 @@
 if [[ $($HOME/scripts/readMoon.sh) == "ganymede" ]]; then
     xscreensaver-command -lock
 elif [[ $($HOME/scripts/readMoon.sh) == "callisto" ]]; then
-
     if [[ $(xrandr --query | grep "DP-1-6-8 connected") ]]; then
-        i3lock -c 000000
+        /home/match/projects/misc/i3lock-multimonitor/lock
     else
         lock_png=~/pictures/lock/lockscreen.png
         if [[ -f $lock_png ]]; then
