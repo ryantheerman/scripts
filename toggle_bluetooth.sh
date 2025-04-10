@@ -7,3 +7,4 @@ else
     rfkill unblock 0
     echo "on" > /home/match/.config/i3status/bluetooth
 fi
+killall -USR1 i3status
