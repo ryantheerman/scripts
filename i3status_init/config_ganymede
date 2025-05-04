@@ -1,0 +1,97 @@
+general {
+        colors = true
+        interval = 1
+        markup = "pango"
+
+        color_good = "#39ff14"
+        color_degraded = "#ffff00"
+        color_bad = "#ff0000"
+}
+
+#order += "ipv6"
+order += "wireless _first_"
+#order += "ethernet _first_"
+order += "volume master"
+order += "read_file bluetooth"
+order += "read_file power"
+order += "battery all"
+#order += "disk /"
+#order += "load"
+order += "read_file gpu"
+order += "cpu_temperature 0"
+order += "memory"
+order += "tztime local"
+#order += "read_file uptime"
+
+wireless _first_ {
+        format_up = "%quality %essid"
+        format_down = "wireless down"
+}
+
+ethernet _first_ {
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+battery all {
+        last_full_capacity = true
+        format = "%status %percentage"
+        low_threshold=30
+        threshold_type=percentage
+        integer_battery_capacity = true
+        color_bad = "#ff0000"
+}
+
+disk "/" {
+        format = "%avail"
+}
+
+load {
+        format = "%1min"
+}
+
+memory {
+        format = "MEMORY %available"
+        threshold_degraded = "10G"
+        format_degraded = "MEMORY < %available"
+}
+
+#tztime local {
+#        format = "<span color='#e0218a'>%Y-%m-%d %H:%M:%S</span> "
+#}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S "
+}
+
+volume master {
+        format = "Volume %volume"
+        format_muted = "Volume muted (%volume)"
+        device = "pulse"
+}
+
+read_file uptime {
+        format = "Uptime%content"
+        path = "/home/match/.config/i3status/uptime-data"
+}
+
+
+cpu_temperature 0 {
+        format = "CPU %degrees°C"
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"
+}
+
+read_file power {
+        format = "%content"
+        path = "/home/match/.config/i3status/power-profile"
+}
+
+read_file bluetooth {
+        format = "<span color='white'>bluetooth:</span> %content"
+        path = "/home/match/.config/i3status/bluetooth"
+}
+
+read_file gpu {
+        format = "<span color='white'>gpu:</span> %content"
+        path = "/home/match/.config/i3status/gpu"
+}
