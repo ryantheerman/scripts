@@ -6,6 +6,10 @@
 
 if setxkbmap -query | grep -iq variant; then
     setxkbmap us &>/dev/null && xmodmap $HOME/.Xmodmap && xset r rate 200 30
+    echo "<span color='yellow'>qwerty</span>" > ~/.config/i3status/keymap
+    killall -USR1 i3status
 else
     setxkbmap us -v dvorak &>/dev/null && xmodmap $HOME/.Xmodmap && xset r rate 200 30
+    echo "<span color='pink'>dvorak</span>" > ~/.config/i3status/keymap
+    killall -USR1 i3status
 fi
