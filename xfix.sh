@@ -26,7 +26,7 @@ xmodmap /home/match/.Xmodmap
 if [[ $(/home/match/scripts/readMoon.sh) == "ganymede" ]]; then
     xinput set-button-map 11 1 1 3 4 5 6 7
 elif [[ $(/home/match/scripts/readMoon.sh) == "callisto" ]]; then
-    xinput set-button-map 10 1 1 3 4 5 6 7
+    xinput set-button-map 14 1 1 3 4 5 6 7
 fi
                
 xrdb /home/match/.Xresources

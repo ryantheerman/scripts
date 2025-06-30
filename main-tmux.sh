@@ -22,7 +22,11 @@ if tmux has-session -t "$SESSION" 2>/dev/null; then
     #xdotool key Ctrl+plus
 
     # attach existing session at window 1
-    tmux attach-session -d -t $SESSION:1
+    if [[ -z $TMUX ]]; then
+        tmux attach-session -d -t $SESSION:1
+    else
+        tmux switch-client -t $SESSION:1
+    fi
     tmux select-window -t 1
     tmux send-keys -t 1 'tmux choose-tree -s' C-m
 else
@@ -34,26 +38,35 @@ else
     # opens second window, names it 'notes', and opens the daybook in vim
     tmux new-window -n 'notes'
     tmux send-keys -t 'notes' 'cd ~/notes/ && daybook' C-m
+
+    # opens third window called scripting
+    tmux new-window -n 'scripts'
+    tmux send-keys 'clear && cd ~/scripts' C-m
+    tmux split-pane -h
+    tmux send-keys 'clear && cd ~/scripts' C-m
+    tmux select-pane -t 0
+
+    # opens fourth window for project
+    tmux new-window -n 'project'
+    tmux send-keys -t 'project' 'cd ~/projects/aoc-java' C-m
+    tmux send-keys -t 'project' 'clear' C-m
     
-    # opens third window and runs htop
-    tmux new-window
+    # opens fifth window and runs ncspot (spotify tui)
+    tmux new-window -n 'spotify'
+    tmux send-keys -t 'spotify' 'ncspot' C-m
+    
+    # opens sixth window and runs htop
+    tmux new-window -n 'processes'
     tmux send-keys 'htop' C-m
     if [[ $($HOME/scripts/readMoon.sh) == "ganymede" ]]; then
         tmux split-pane -h
         tmux send-keys 'nvtop' C-m
     fi
-    # opens fourth window and runs irssi
-    tmux new-window
-    tmux send-keys 'irssi' C-m
-    
-    # opens fifth window and runs ncspot
-    tmux new-window -n 'spotify'
-    tmux send-keys -t 'spotify' 'ncspot' C-m
 
-    # opens sixth window for project
-    tmux new-window -n 'project'
-    tmux send-keys -t 'project' 'cd ~/projects/aoc-java' C-m
-    tmux send-keys -t 'project' 'clear' C-m
+    # opens seventh window and runs irssi
+    tmux new-window -n 'irc'
+    tmux send-keys 'irssi' C-m
+
     
 
 
@@ -74,6 +87,7 @@ else
 #    xdotool key Ctrl+equal
 
     # switch to window 3, then window 2 so the order of previous windows will be ascending when the session attaches to window 1
+    tmux select-window -t 6
     tmux select-window -t 5
     tmux select-window -t 4
     tmux select-window -t 3
