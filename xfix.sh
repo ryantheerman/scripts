@@ -22,12 +22,9 @@ xmodmap /home/match/.Xmodmap
 # below xcape config seems unaffected by the system update issue. running it twice (at xinit and after update) seems to cause trouble)
 #xcape -e 'Control_L=Control_L|a'
 
-# moon specific configs
-if [[ $(/home/match/scripts/readMoon.sh) == "ganymede" ]]; then
+    xinput set-button-map 10 1 1 3 4 5 6 7
     xinput set-button-map 11 1 1 3 4 5 6 7
-elif [[ $(/home/match/scripts/readMoon.sh) == "callisto" ]]; then
     xinput set-button-map 14 1 1 3 4 5 6 7
-fi
                
 xrdb /home/match/.Xresources
 
