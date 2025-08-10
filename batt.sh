@@ -1,3 +1,3 @@
 #!/bin/bash
 
-acpi | awk '{print $4}' | sed 's|,||g'
+acpi | grep 'Battery 0' | awk '{print $4}' | sed 's|,||g'
