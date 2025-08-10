@@ -5,24 +5,29 @@ SESSION="network"
 cd ~
 
 start_network() {
-   tmux new-session -d -s $SESSION -n homeserver
-   tmux send-keys -t "${SESSION}:homeserver" 'ssh homeserver' C-m
-   tmux send-keys -t "${SESSION}:homeserver" 'tmux.sh' C-m
+    tmux new-session -d -s $SESSION -n homeserver
+    tmux send-keys -t "${SESSION}:homeserver" 'ssh homeserver' C-m
+    tmux send-keys -t "${SESSION}:homeserver" 'tmux.sh' C-m
+ 
+    # second window ssh into storage, start tmux
+    tmux new-window -t "${SESSION}:" -n storage
+    tmux send-keys -t "${SESSION}:storage" 'ssh storage' C-m
+    tmux send-keys -t "${SESSION}:storage" 'tmux.sh' C-m
+ 
+    # third window ssh into pi, start tmux
+    tmux new-window -t "${SESSION}:" -n gamebox
+    tmux send-keys -t "${SESSION}:gamebox" 'ssh gamebox' C-m
+    tmux send-keys -t "${SESSION}:gamebox" 'tmux.sh' C-m
 
-   # second window ssh into storage, start tmux
-   tmux new-window -t "${SESSION}:" -n storage
-   tmux send-keys -t "${SESSION}:storage" 'ssh storage' C-m
-   tmux send-keys -t "${SESSION}:storage" 'tmux.sh' C-m
-
-   # third window ssh into storage, start tmux
-   tmux new-window -t "${SESSION}:" -n vms
+    # fourth window ssh into vms, start tmux
+    tmux new-window -t "${SESSION}:" -n vms
 #   tmux send-keys -t "${SESSION}:vms" 'ssh titan-vm' C-m
 #   tmux send-keys -t "${SESSION}:vms" 'tmux' C-m
    
    
    # switch to window 3, then window 2 so the order of previous windows will be ascending when the session attaches to window 1
-   tmux select-window -t "${SESSION}:2"
-   tmux select-window -t "${SESSION}:1"
+    tmux select-window -t "${SESSION}:2"
+    tmux select-window -t "${SESSION}:1"
 }
 
 if tmux has-session -t "$SESSION" 2>/dev/null; then
