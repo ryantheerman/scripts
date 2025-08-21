@@ -21,12 +21,12 @@ acIsOn=$(cat /sys/class/power_supply/AC/online)
 if [ $1 == "balanced" ]; then
     # and ac is on
     if [ $acIsOn == 1 ]; then
-        echo "<span color='orange'>balanced (ac)</span>" > /home/match/.config/i3status/power-profile
+        echo "<span color='orange'>balanced AC</span>" > /home/match/.config/i3status/power-profile
         killall -USR1 i3status
         tuned-adm profile balanced
     # or ac is off
     else
-        echo "<span color='orange'>balanced (bat)</span>" > /home/match/.config/i3status/power-profile
+        echo "<span color='orange'>balanced BAT</span>" > /home/match/.config/i3status/power-profile
         killall -USR1 i3status
         tuned-adm profile balanced-battery
     fi
@@ -34,12 +34,12 @@ if [ $1 == "balanced" ]; then
 elif [ $1 == "power-saving" ]; then
     # and ac is on
     if [ $acIsOn == 1 ]; then
-        echo "power-saving (ac)" > /home/match/.config/i3status/power-profile
+        echo "power-saving AC" > /home/match/.config/i3status/power-profile
         killall -USR1 i3status
         tuned-adm profile laptop-ac-powersave
     # or ac is off
     else
-        echo "power-saving (bat)"  > /home/match/.config/i3status/power-profile
+        echo "power-saving BAT"  > /home/match/.config/i3status/power-profile
         killall -USR1 i3status
         tuned-adm profile laptop-battery-powersave
     fi

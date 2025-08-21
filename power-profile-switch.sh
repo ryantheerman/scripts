@@ -11,11 +11,11 @@ echo "current profile: $current_profile"
 if [ $1 == "true" ]; then
 #    echo "we're plugged in"
     if [ $current_profile == "laptop-battery-powersave" ]; then
-        echo "power-saving (ac)" > /home/match/.config/i3status/power-profile
+        echo "power-saving AC" > /home/match/.config/i3status/power-profile
         killall -USR1 i3status
         tuned-adm profile laptop-ac-powersave
     elif [ $current_profile == "balanced-battery" ]; then
-        echo "<span color='orange'>balanced (ac)</span>" > /home/match/.config/i3status/power-profile
+        echo "<span color='orange'>balanced AC</span>" > /home/match/.config/i3status/power-profile
         killall -USR1 i3status
         tuned-adm profile balanced
     fi  
@@ -27,11 +27,11 @@ if [ $1 == "true" ]; then
 elif [ $1 == "false" ]; then
 #    echo "we're unplugged"
     if [ $current_profile == "laptop-ac-powersave" ]; then
-        echo "power-saving (bat)" > /home/match/.config/i3status/power-profile
+        echo "power-saving BAT" > /home/match/.config/i3status/power-profile
         killall -USR1 i3status
         tuned-adm profile laptop-battery-powersave
     elif [ $current_profile == "balanced" ]; then
-        echo "<span color='orange'>balanced (bat)</span>" > /home/match/.config/i3status/power-profile
+        echo "<span color='orange'>balanced BAT</span>" > /home/match/.config/i3status/power-profile
         killall -USR1 i3status
         tuned-adm profile balanced-battery
     fi
