@@ -38,37 +38,14 @@ else
     # opens second window, names it 'notes', and opens the daybook in vim
     tmux new-window -n 'notes'
     tmux send-keys -t 'notes' 'cd ~/notes/ && daybook' C-m
-
-    # opens third window called scripting
-    tmux new-window -n 'scripts'
-    tmux send-keys 'clear && cd ~/scripts' C-m
-    tmux split-pane -h
-    tmux send-keys 'clear && cd ~/scripts' C-m
-    tmux select-pane -t 0
-
-    # opens fourth window for project
-    tmux new-window -n 'project'
-    tmux send-keys -t 'project' 'cd ~/projects/aoc-java' C-m
-    tmux send-keys -t 'project' 'clear' C-m
     
-    # opens fifth window and runs ncspot (spotify tui)
+    # opens third window and runs ncspot (spotify tui)
     tmux new-window -n 'spotify'
     tmux send-keys -t 'spotify' 'ncspot' C-m
     
-    # opens sixth window and runs htop
-    tmux new-window -n 'processes'
-    tmux send-keys 'htop' C-m
-    if [[ $($HOME/scripts/readMoon.sh) == "ganymede" ]]; then
-        tmux split-pane -h
-        tmux send-keys 'nvtop' C-m
-    fi
-
-    # opens seventh window and runs irssi
+    # opens fourth window and runs irssi
     tmux new-window -n 'irc'
     tmux send-keys 'irssi' C-m
-
-    
-
 
     # make terminal full screen (checks if i3bar is visible on eDP-1. if yes, toggles fullscreen on. else does not toggle fullscreen.
 #    if xwininfo -id $(xdotool search -name "i3bar for output eDP-1") | grep IsViewable 2>/dev/null; then
@@ -87,9 +64,6 @@ else
 #    xdotool key Ctrl+equal
 
     # switch to window 3, then window 2 so the order of previous windows will be ascending when the session attaches to window 1
-    tmux select-window -t 6
-    tmux select-window -t 5
-    tmux select-window -t 4
     tmux select-window -t 3
     tmux select-window -t 2
     tmux select-window -t 1
