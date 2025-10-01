@@ -23,7 +23,20 @@
 #        magick $lock_png -blur 0x24 $lock_png &>/dev/null
 #       i3lock -i $lock_png &>/dev/null
 
+#pactl set-sink-mute @DEFAULT_SINK@ 1
 ~/projects/misc/i3lock-multimonitor/lock
+#sleep 2
+#if pgrep -x i3lock >/dev/null; then
+#	xdotool key Shift
+#	if ! pgrep -x xidlehook >/dev/null; then
+#		xidlehook --timer 10 'systemctl suspend' '' &
+#	fi
+#else
+#	pkill xidlehook
+#fi
+#xidlehook --timer 10 'systemctl suspend' '' &
+#sleep 10
+#systemctl suspend
 
 #lock_png=~/pictures/lock/lockscreen.png
 #i3lock -i $lock_png &>/dev/null
