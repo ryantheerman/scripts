@@ -16,13 +16,12 @@
 setxkbmap us -v dvorak 1> /dev/null
 xset r rate 200 30
 xset s 1800 1800 +dpms
-xmodmap /home/match/.Xmodmap
+#xmodmap /home/match/.Xmodmap
 #xcape -e 'Hyper_R=Escape'
 
 # below xcape config seems unaffected by the system update issue. running it twice (at xinit and after update) seems to cause trouble)
 #xcape -e 'Control_L=Control_L|a'
 
-xinput set-button-map 14 1 1 3 4 5 6 7
 xinput set-button-map 10 1 1 3 4 5 6 7
                
 xrdb /home/match/.Xresources
