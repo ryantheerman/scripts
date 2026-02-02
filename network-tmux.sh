@@ -4,7 +4,7 @@ SESSION="network"
 
 cd ~
 
-connected_net=$(nmcli | grep "connected to" | awk '{print $4}')
+connected_net=$(nmcli | grep "connected to diaper-butt-5G" | awk '{print $4}')
 target_net=$(cat $HOME/scripts/.netdef)
 
 if [[ "$connected_net" == "$target_net" ]]; then
