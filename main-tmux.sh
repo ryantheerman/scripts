@@ -23,12 +23,14 @@ if tmux has-session -t "$SESSION" 2>/dev/null; then
 
     # attach existing session at window 1
     if [[ -z $TMUX ]]; then
-        tmux attach-session -d -t $SESSION:1
+        #tmux attach-session -d -t $SESSION:1
+        tmux attach-session -d -t $SESSION
     else
-        tmux switch-client -t $SESSION:1
+        #tmux switch-client -t $SESSION:1
+        tmux switch-client -t $SESSION
     fi
-    tmux select-window -t 1
-    tmux send-keys -t 1 'tmux choose-tree -s' C-m
+#    tmux select-window -t 1
+#    tmux send-keys -t 1 'tmux choose-tree -s' C-m
 else
     echo "session '$SESSION' does not exist."
 
@@ -47,6 +49,10 @@ else
     tmux new-window -n 'irc'
     tmux send-keys 'irssi' C-m
 
+    # opens fourth window and runs mutt
+#    tmux new-window -n 'mail'
+#    tmux send-keys 'mutt' C-m
+
     # make terminal full screen (checks if i3bar is visible on eDP-1. if yes, toggles fullscreen on. else does not toggle fullscreen.
 #    if xwininfo -id $(xdotool search -name "i3bar for output eDP-1") | grep IsViewable 2>/dev/null; then
 #        i3-msg 'fullscreen toggle'
@@ -64,6 +70,7 @@ else
 #    xdotool key Ctrl+equal
 
     # switch to window 3, then window 2 so the order of previous windows will be ascending when the session attaches to window 1
+#    tmux select-window -t 4
     tmux select-window -t 3
     tmux select-window -t 2
     tmux select-window -t 1
