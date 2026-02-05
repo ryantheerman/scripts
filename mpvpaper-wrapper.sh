@@ -3,6 +3,8 @@
 mpvpaper -o "no-audio --panscan=1.0" -n 1200 ALL $LIVE_WALLPAPER_WORKSPACE &
 mpvpaper-backdrop -o "no-audio --panscan=1.0" -n 1200 ALL $LIVE_WALLPAPER_BACKDROP &
 
+#mpvpaper -o "no-audio --panscan=1.0" -n 1200 ALL $PAPER_1 &
+#mpvpaper-backdrop -o "no-audio --panscan=1.0" -n 1200 ALL $PAPER_2 &
 
 
 
