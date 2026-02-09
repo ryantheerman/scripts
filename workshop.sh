@@ -1,4 +1,5 @@
 #!/bin/zsh
+printf '\033]2;workshop\033\\'
 
 SESSION="main"
 
