@@ -2,7 +2,7 @@
 
 SESSION="sicp"
 
-cd ~
+cd ~/projects/sicp/work
 
 if tmux has-session -t "$SESSION" 2>/dev/null; then
     # attach existing session at window 1
@@ -17,7 +17,7 @@ else
 #    tmux send-keys 'cd ~/projects/sicp && clear && vim ~/projects/sicp/sicp.rkt' C-m
 #    tmux send-keys 'cd ~/projects/sicp && clear && vim -c "NERDTree ~/projects/sicp"' C-m
 #    tmux send-keys 'cd ~/projects/sicp && vim .' C-m
-    tmux send-keys 'cd ~/projects/sicp && vim -p work/1/notes.rkt work/1/exercises.rkt' C-m
+    tmux send-keys 'vim -p notes.rkt book-exercises.rkt homework.rkt labs.rkt' C-m
     tmux split-pane -v
     tmux send-keys 'clear && racket -I simply-scheme' C-m
     tmux select-pane -t 0
