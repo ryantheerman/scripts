@@ -2,6 +2,8 @@
 
 mpv --save-position-on-quit --pause ~/projects/sicp/lectures/cs61a-lectures.m3u &
 
+sleep .55
+
 zathura ~/projects/sicp/documents/sicp.pdf &
 ZATHURA_PID=$!
 
@@ -22,3 +24,7 @@ zathura ~/projects/sicp/documents/course_reader_vol_1/homework_assignments.pdf &
 sleep .25
 
 zathura ~/projects/sicp/documents/course_reader_vol_1/lab_assignments.pdf &
+
+sleep .55
+
+zathura ~/projects/sicp/documents/course_syllabus.pdf &
