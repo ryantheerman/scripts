@@ -8,7 +8,7 @@ connected_wired=$(nmcli | grep "inet4 192.168.30.")
 target_net=$(cat $HOME/scripts/.netdef)
 #if [[ $1 == 'claude-vm' ]]; then
 #    ssh -X -t $1 'zsh -c "/home/$USER/scripts/tmux.sh || true; exec zsh"'
-if [[ "$connected_wireless" == "$target_net" || "$connected_wired" || $1 == "claude-vm" ]]; then
+if [[ "$connected_wireless" == "$target_net" || "$connected_wired" || $1 == "claudebox" ]]; then
     if [[ $1 == 'brocade' ]]; then
         ssh brocade
     fi
