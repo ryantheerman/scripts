@@ -1,6 +1,6 @@
 #!/bin/zsh
-printf '\033]2;claude-vm\033\\'
+printf '\033]2;claudebox-local\033\\'
 
-SESSION="claude-vm"
+SESSION="claudebox-local"
 
-ssh -t claude-vm 'zsh -c "/home/$USER/scripts/tmux.sh || true; exec zsh"'
+ssh -t claudebox 'zsh -c "/home/$USER/scripts/tmux.sh || true; exec zsh"'
