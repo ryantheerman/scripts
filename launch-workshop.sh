@@ -38,9 +38,9 @@ else
     # creates detached session called main and opens first window to zsh prompt
     tmux new-session -d -s $SESSION
     
-    # opens second window, names it 'notes', and opens the daybook in vim
+    # opens second window, names it 'notes', and opens my notes nvim session
     tmux new-window -n 'notes'
-    tmux send-keys -t 'notes' 'cd ~/notes/ && daybook' C-m
+    tmux send-keys -t 'notes' 'cd ~/notes/ && nvim' C-m
     
     # opens third window and runs ncspot (spotify tui)
     tmux new-window -n 'spotify'
