@@ -17,7 +17,8 @@ else
 #    tmux send-keys 'cd ~/projects/sicp && clear && vim ~/projects/sicp/sicp.rkt' C-m
 #    tmux send-keys 'cd ~/projects/sicp && clear && vim -c "NERDTree ~/projects/sicp"' C-m
 #    tmux send-keys 'cd ~/projects/sicp && vim .' C-m
-    tmux send-keys 'vim -p notes.rkt book-exercises.rkt homework.rkt labs.rkt' C-m
+#    tmux send-keys 'nvim -p notes.rkt book-exercises.rkt homework.rkt labs.rkt' C-m
+    tmux send-keys 'nvim' C-m
     tmux split-pane -v
     tmux send-keys 'clear && racket -I simply-scheme' C-m
     tmux select-pane -t 0
