@@ -33,4 +33,4 @@ done
 
 alacritty --title "remind-workspace" -e ~/scripts/remind-tmux.sh &
 
-tkremind -m -b1
+tkremind -m -b1 &
