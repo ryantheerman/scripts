@@ -48,7 +48,7 @@ else
     
     # opens fourth window and runs irssi
     tmux new-window -n 'irc'
-    tmux send-keys 'irssi' C-m
+    tmux send-keys 'irssi-tmux.sh' C-m
 
     # opens fourth window and runs mutt
 #    tmux new-window -n 'mail'
