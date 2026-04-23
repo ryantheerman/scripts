@@ -15,5 +15,5 @@ window_id=$(niri msg windows 2>/dev/null | awk -v title="\"$TARGET_TITLE\"" '
 if [[ -n "$window_id" ]]; then
     niri msg action focus-window --id "$window_id"
 else
-    alacritty --title "$TARGET_TITLE" -e /home/match/scripts/machine-tmux.sh "$TARGET_TITLE"
+    alacritty --title "$TARGET_TITLE" -e /home/match/scripts/ssh-machines.sh "$TARGET_TITLE"
 fi
