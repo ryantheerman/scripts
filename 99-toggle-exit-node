@@ -1,0 +1,12 @@
+#!/bin/bash
+
+INTERFACE="$1"
+EVENT="$2"
+
+if [ "$EVENT" = "up" ] || [ "$EVENT" = "down" ]; then
+    if ip route | grep -q "192\.168\.30\."; then
+        tailscale set --exit-node=
+    else
+        tailscale set --exit-node=100.108.154.45
+    fi
+fi
