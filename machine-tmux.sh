@@ -1,23 +1,19 @@
 #!/bin/zsh
 
-cd ~
+#cd ~
+#
+#connected_wireless=$(nmcli | grep "connected to diaper-butt-home" | awk '{print $4}')
+#connected_wired=$(nmcli | grep "inet4 192.168.30.")
+#
+#target_net=$(cat $HOME/scripts/.netdef)
 
-connected_wireless=$(nmcli | grep "connected to diaper-butt-home" | awk '{print $4}')
-connected_wired=$(nmcli | grep "inet4 192.168.30.")
 
-target_net=$(cat $HOME/scripts/.netdef)
-#if [[ $1 == 'claude-vm' ]]; then
-#    ssh -X -t $1 'zsh -c "/home/$USER/scripts/tmux.sh || true; exec zsh"'
-if [[ "$connected_wireless" == "$target_net" || "$connected_wired" || $1 == "claudebox-local" ]]; then
-    if [[ $1 == 'brocade' ]]; then
-        ssh brocade
-    fi
-    ssh -t $1 'zsh -c "/home/$USER/scripts/tmux.sh || true; exec zsh"'
-else
-    if [[ $1 == 'brocade' ]]; then
-        echo "can't connect to the brocade remotely bro"
-        exit
-    fi
-    ssh -t "$1.tailnet" 'zsh -c "/home/$USER/scripts/tmux.sh || true; exec zsh"'
+# check if we need to use the tailnet
+
+hostname=$1
+
+if ! bash on-home-network.sh $hostname && [[ $hostname != 'piratebox' ]] && [[ $hostname != 'claudebox-server' ]] && [[ $hostname != 'brocade' ]]; then
+    hostname=$hostname.tailnet
 fi
 
+ssh -t $hostname 'zsh -c "/home/$USER/scripts/tmux.sh || true; exec zsh"'
