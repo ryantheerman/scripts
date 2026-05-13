@@ -4,7 +4,7 @@ while true; do
     hostname=$1
 
     # check if we need to use the tailnet
-    if ! bash on-home-network.sh $hostname; then
+    if ! bash on-home-network.sh $hostname && [[ $hostname != 'piratebox' ]] && [[ $hostname != claudebox-server ]]; then
         hostname=$hostname.tailnet
     fi
 
