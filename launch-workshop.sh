@@ -36,7 +36,7 @@ else
     echo "session '$SESSION' does not exist."
 
     # creates detached session called main and opens first window to zsh prompt
-    tmux new-session -d -s $SESSION
+    tmux new-session -d -s $SESSION -n 'shell'
     
     # opens second window, names it 'notes', and opens my notes nvim session
     tmux new-window -n 'notes'
