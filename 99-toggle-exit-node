@@ -7,6 +7,6 @@ if [ "$EVENT" = "up" ] || [ "$EVENT" = "down" ]; then
     if ip route | grep -q "192\.168\.30\."; then
         tailscale set --exit-node=
     else
-        tailscale set --exit-node=100.108.154.45
+        tailscale set --exit-node=100.84.122.25
     fi
 fi
